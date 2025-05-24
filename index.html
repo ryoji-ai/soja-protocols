@@ -66,15 +66,17 @@
   <header class="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-6 shadow-xl sticky top-0 z-50">
     <div class="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center">
       <div class="flex items-center mb-4 sm:mb-0">
-        <i class="fas fa-hands-helping text-4xl mr-3"></i> <h1 class="text-3xl font-bold tracking-tight">総社消防 救急活動サポートハブ</h1>
+        <i class="fas fa-hands-helping text-4xl mr-3"></i>
+        <h1 class="text-3xl font-bold tracking-tight">総社消防 救急活動サポートハブ</h1>
       </div>
       <span class="text-sm opacity-90">指導救命士監修</span>
     </div>
   </header>
 
-  <nav class="bg-white shadow-md sticky top-[88px] sm:top-[88px] z-40"> <div class="container mx-auto px-4">
+  <nav class="bg-white shadow-md sticky top-[88px] sm:top-[88px] z-40">
+    <div class="container mx-auto px-4">
       <ul class="flex flex-wrap justify-center sm:justify-start space-x-2 sm:space-x-4 py-3 overflow-x-auto">
-        <li><a href="#interventions" class="nav-link"><i class="fas fa-procedures mr-1"></i>処置・介入・資料</a> </li>
+        <li><a href="#interventions" class="nav-link"><i class="fas fa-procedures mr-1"></i>処置・介入・資料</a></li>
         <li><a href="#documentation" class="nav-link"><i class="fas fa-file-alt mr-1"></i>ドキュメンテーション</a></li>
         <li><a href="#transport" class="nav-link"><i class="fas fa-ambulance mr-1"></i>搬送基準</a></li>
         <li><a href="#download" class="nav-link"><i class="fas fa-download mr-1"></i>ダウンロード</a></li>
@@ -84,10 +86,12 @@
 
   <main class="container mx-auto p-4 sm:p-8 space-y-10">
     <section id="interventions" class="section-card">
-      <h2 class="section-title"><i class="fas fa-heartbeat"></i>処置・介入プロトコール・関連資料</h2> <ul class="space-y-3">
+      <h2 class="section-title"><i class="fas fa-heartbeat"></i>処置・介入プロトコール・関連資料</h2>
+      <ul class="space-y-3">
         <li>
           <a href="https://ryoji-ai.github.io/soja-heatstroke-info/" target="_blank" rel="noopener noreferrer" class="link-item group">
-            <i class="fas fa-sun"></i> <span class="text-blue-700 group-hover:underline font-medium">総社消防救急隊 熱中症対応資料</span>
+            <i class="fas fa-sun"></i>
+            <span class="text-blue-700 group-hover:underline font-medium">総社消防救急隊 熱中症対応資料</span>
             <i class="fas fa-external-link-alt"></i>
           </a>
         </li>
@@ -197,7 +201,7 @@
           <span class="font-semibold">除細動プロトコール PDF</span>
           <span class="text-xs opacity-80 mt-1">開く／ダウンロード</span>
         </a>
-        <a href="tokutei_heli_hikitsugi.pdf" target="_blank" rel="noopener noreferrer" class="download-link-card">
+        <a href="tokutei_heli_hikitsugi.pdf" target="_blank" rel="noopener noreferrer" class="download-link-card"> {/* ★ ここを修正しました */}
           <i class="fas fa-exchange-alt"></i>
           <span class="font-semibold">特定行為 実施後のヘリ引継ぎ PDF</span>
           <span class="text-xs opacity-80 mt-1">開く／ダウンロード</span>
@@ -257,5 +261,6 @@
         }
       });
     });
-  </script></body>
+  </script>
+</body>
 </html>
