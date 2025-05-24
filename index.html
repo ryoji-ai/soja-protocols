@@ -3,130 +3,259 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>総社市救急隊プロトコール集</title>
-  <!-- Tailwind CSS CDN -->
+  <title>総社消防 救急活動サポートハブ</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* Interフォントを適用 */
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    /* スムーズスクロール */
+    html {
+      scroll-behavior: smooth;
+    }
+    /* カスタムスクロールバー (オプション) */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+    .nav-link {
+      @apply px-4 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition-colors duration-150 ease-in-out;
+    }
+    .section-card {
+      @apply bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out;
+    }
+    .section-title {
+      @apply text-2xl font-bold mb-6 text-blue-700 flex items-center;
+    }
+    .section-title i {
+      @apply mr-3 text-2xl;
+    }
+    .link-item {
+      @apply flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors duration-150 ease-in-out mb-3;
+    }
+    .link-item i.fa-file-pdf { /* PDFアイコンの色を赤に固定 */
+      @apply mr-3 text-red-500 text-xl;
+    }
+    .link-item i.fa-sun { /* 熱中症アイコンの色 */
+        @apply mr-3 text-orange-500 text-xl;
+    }
+    .link-item i.fa-external-link-alt { /* 外部リンクアイコンの色 */
+        @apply ml-auto text-gray-400 group-hover:text-blue-500;
+    }
+    .download-link-card {
+      @apply flex flex-col items-center justify-center p-6 bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out m-2 min-h-[180px] text-center;
+    }
+    .download-link-card i {
+      @apply text-4xl mb-3;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-100 text-gray-800">
-  <header class="bg-blue-700 text-white p-4 shadow-md">
-    <h1 class="text-2xl font-bold">総社市救急隊プロトコール集</h1>
+<body class="bg-gradient-to-br from-gray-100 to-blue-50 text-gray-800 font-[Noto Sans JP]">
+  <header class="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-6 shadow-xl sticky top-0 z-50">
+    <div class="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center">
+      <div class="flex items-center mb-4 sm:mb-0">
+        <i class="fas fa-hands-helping text-4xl mr-3"></i> <h1 class="text-3xl font-bold tracking-tight">総社消防 救急活動サポートハブ</h1>
+      </div>
+      <span class="text-sm opacity-90">指導救命士監修</span>
+    </div>
   </header>
 
-  <nav class="bg-white shadow p-4">
-    <ul class="flex space-x-4 overflow-x-auto">
-      <li><a href="#interventions" class="hover:text-blue-600">処置・介入</a></li>
-      <li><a href="#documentation" class="hover:text-blue-600">ドキュメンテーション</a></li>
-      <li><a href="#transport" class="hover:text-blue-600">搬送基準</a></li>
-      <li><a href="#download" class="hover:text-blue-600">ダウンロード</a></li>
-    </ul>
+  <nav class="bg-white shadow-md sticky top-[88px] sm:top-[88px] z-40"> <div class="container mx-auto px-4">
+      <ul class="flex flex-wrap justify-center sm:justify-start space-x-2 sm:space-x-4 py-3 overflow-x-auto">
+        <li><a href="#interventions" class="nav-link"><i class="fas fa-procedures mr-1"></i>処置・介入・資料</a> </li>
+        <li><a href="#documentation" class="nav-link"><i class="fas fa-file-alt mr-1"></i>ドキュメンテーション</a></li>
+        <li><a href="#transport" class="nav-link"><i class="fas fa-ambulance mr-1"></i>搬送基準</a></li>
+        <li><a href="#download" class="nav-link"><i class="fas fa-download mr-1"></i>ダウンロード</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <main class="p-6 space-y-8">
-    <!-- 処置・介入 -->
-    <section id="interventions" class="bg-white p-4 rounded shadow">
-      <h2 class="text-xl font-semibold mb-2">処置・介入</h2>
-      <ul class="list-disc list-inside">
+  <main class="container mx-auto p-4 sm:p-8 space-y-10">
+    <section id="interventions" class="section-card">
+      <h2 class="section-title"><i class="fas fa-heartbeat"></i>処置・介入プロトコール・関連資料</h2> <ul class="space-y-3">
         <li>
-          <a href="https://www.pref.okayama.jp/uploaded/life/835819_8035900_misc.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
-            CPR（心肺蘇生法）プロトコールPDF
+          <a href="https://ryoji-ai.github.io/soja-heatstroke-info/" target="_blank" rel="noopener noreferrer" class="link-item group">
+            <i class="fas fa-sun"></i> <span class="text-blue-700 group-hover:underline font-medium">総社消防救急隊 熱中症対応資料</span>
+            <i class="fas fa-external-link-alt"></i>
           </a>
         </li>
         <li>
-          <a href="https://www.fdma.go.jp/laws/tutatsu/items/230330_kyuuki_02.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
-            救急隊及び准救急隊の行う心肺蘇生法の実施要領
+          <a href="https://www.pref.okayama.jp/uploaded/life/835819_8035900_misc.pdf" target="_blank" rel="noopener noreferrer" class="link-item group">
+            <i class="fas fa-file-pdf"></i>
+            <span class="text-blue-700 group-hover:underline font-medium">CPR（心肺蘇生法）プロトコールPDF</span>
+            <i class="fas fa-external-link-alt"></i>
           </a>
         </li>
         <li>
-          <a href="https://www.ncpr.jp/guideline_update/pdf/ncpr_algorithm2020.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
-            NCPRアルゴリズム
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <!-- ドキュメンテーション -->
-    <section id="documentation" class="bg-white p-4 rounded shadow">
-      <h2 class="text-xl font-semibold mb-2">ドキュメンテーション</h2>
-      <ul class="list-disc list-inside">
-        <li>
-          <a href="https://www.fdma.go.jp/relocation/kyukyukikaku/oukyu/index.html" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
-            応急手当WEB講習
+          <a href="https://www.fdma.go.jp/laws/tutatsu/items/230330_kyuuki_02.pdf" target="_blank" rel="noopener noreferrer" class="link-item group">
+            <i class="fas fa-file-pdf"></i>
+            <span class="text-blue-700 group-hover:underline font-medium">救急隊及び准救急隊の行う心肺蘇生法の実施要領</span>
+            <i class="fas fa-external-link-alt"></i>
           </a>
         </li>
         <li>
-          <a href="https://www.fdma.go.jp/mission/enrichment/prevention/items/counterplan021_kansenboushi_01.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
-            救急隊感染防止対策マニュアル（ver.2.1）
+          <a href="https://www.ncpr.jp/guideline_update/pdf/ncpr_algorithm2020.pdf" target="_blank" rel="noopener noreferrer" class="link-item group">
+            <i class="fas fa-file-pdf"></i>
+            <span class="text-blue-700 group-hover:underline font-medium">NCPRアルゴリズム</span>
+            <i class="fas fa-external-link-alt"></i>
           </a>
         </li>
       </ul>
     </section>
 
-    <!-- 搬送基準 -->
-    <section id="transport" class="bg-white p-4 rounded shadow">
-      <h2 class="text-xl font-semibold mb-2">搬送及び受入基準・医療機関リスト</h2>
-      <ul class="list-disc list-inside">
+    <section id="documentation" class="section-card">
+      <h2 class="section-title"><i class="fas fa-book-medical"></i>ドキュメンテーション関連</h2>
+      <ul class="space-y-3">
         <li>
-          <a href="https://www.pref.okayama.jp/uploaded/life/772970_7171317_misc.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
-            実施基準 改正後本文（令和6年3月15日）PDF
+          <a href="https://www.fdma.go.jp/relocation/kyukyukikaku/oukyu/index.html" target="_blank" rel="noopener noreferrer" class="link-item group">
+            <i class="fas fa-laptop-medical group-hover:text-green-500"></i>
+            <span class="text-blue-700 group-hover:underline font-medium">応急手当WEB講習</span>
+            <i class="fas fa-external-link-alt"></i>
           </a>
         </li>
         <li>
-          <a href="https://www.pref.okayama.jp/uploaded/life/772970_8771617_misc.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
-            医療機関リスト（令和7年2月14日更新）PDF
-          </a>
-        </li>
-        <li>
-          <a href="https://www.pref.okayama.jp/uploaded/life/772970_8778658_misc.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
-            医療機関リスト（指趾切断）（令和4年12月調査）PDF
-          </a>
-        </li>
-        <li>
-          <a href="https://www.pref.okayama.jp/uploaded/life/772970_8778659_misc.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
-            大動脈緊急症拠点病院リスト（令和6年12月更新）PDF
+          <a href="https://www.fdma.go.jp/mission/enrichment/prevention/items/counterplan021_kansenboushi_01.pdf" target="_blank" rel="noopener noreferrer" class="link-item group">
+            <i class="fas fa-file-pdf"></i>
+            <span class="text-blue-700 group-hover:underline font-medium">救急隊感染防止対策マニュアル（ver.2.1）</span>
+            <i class="fas fa-external-link-alt"></i>
           </a>
         </li>
       </ul>
     </section>
 
-     <!-- ダウンロードセクション　-->
-  <section id="download" class="bg-white p-4 rounded shadow text-center">
-    <a href="乳幼児向け救急法.pdf" target="_blank"
-       class="text-blue-600 hover:underline inline-block">
-      📄 乳幼児向け救急法PDFを開く／ダウンロード
-    </a>
-     <a href="ドクヘリドクターへの指示要請.pdf" target="_blank"
-     class="text-blue-600 hover:underline inline-block">
-    📄 ドクヘリドクターへの指示要請PDFを開く／ダウンロード
-  </a>
-  <a href="救急年報報告（ウツタイン様式オンライン）入力要領.pdf" target="_blank"
-     class="text-blue-600 hover:underline inline-block">
-    📄 救急年報報告（ウツタイン様式オンライン）入力要領PDFを開く／ダウンロード
-  </a>
-  <a href="救急年報報告（活動事案毎データ）入力要領.pdf" target="_blank"
-     class="text-blue-600 hover:underline inline-block">
-    📄 救急年報報告（活動事案毎データ）入力要領PDFを開く／ダウンロード
-  </a>
-  <a href="除細動プロトコール.pdf" target="_blank"
-     class="text-blue-600 hover:underline inline-block">
-    📄 除細動プロトコールPDFを開く／ダウンロード
-  </a>
-  <a href="特定行為　ヘリ引継ぎ.pdf" target="_blank"
-     class="text-blue-600 hover:underline inline-block">
-    📄 特定行為 実施後のヘリ引継ぎPDFを開く／ダウンロード
-  </a>
-     <a href="DNARを告げられた場合の救急活動について.pdf" target="_blank"
-     class="text-blue-600 hover:underline inline-block">
-    📄 DNARを告げられた場合の救急活動についてPDFを開く／ダウンロード
-  </a>
-     <a href="救急車以外の消防車両で災害出動した救急救命士の特定行為実施について.pdf" target="_blank"
-     class="text-blue-600 hover:underline inline-block">
-    📄 救急車以外の消防車両で災害出動した救急救命士の特定行為実施についてPDFを開く／ダウンロード
-  </a>
-  </section>
-</main>
+    <section id="transport" class="section-card">
+      <h2 class="section-title"><i class="fas fa-route"></i>搬送及び受入基準・医療機関リスト</h2>
+      <ul class="space-y-3">
+        <li>
+          <a href="https://www.pref.okayama.jp/uploaded/life/772970_7171317_misc.pdf" target="_blank" rel="noopener noreferrer" class="link-item group">
+            <i class="fas fa-file-pdf"></i>
+            <span class="text-blue-700 group-hover:underline font-medium">実施基準 改正後本文（令和6年3月15日）PDF</span>
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.pref.okayama.jp/uploaded/life/772970_8771617_misc.pdf" target="_blank" rel="noopener noreferrer" class="link-item group">
+            <i class="fas fa-file-pdf"></i>
+            <span class="text-blue-700 group-hover:underline font-medium">医療機関リスト（令和7年2月14日更新）PDF</span>
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.pref.okayama.jp/uploaded/life/772970_8778658_misc.pdf" target="_blank" rel="noopener noreferrer" class="link-item group">
+            <i class="fas fa-file-pdf"></i>
+            <span class="text-blue-700 group-hover:underline font-medium">医療機関リスト（指趾切断）（令和4年12月調査）PDF</span>
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.pref.okayama.jp/uploaded/life/772970_8778659_misc.pdf" target="_blank" rel="noopener noreferrer" class="link-item group">
+            <i class="fas fa-file-pdf"></i>
+            <span class="text-blue-700 group-hover:underline font-medium">大動脈緊急症拠点病院リスト（令和6年12月更新）PDF</span>
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+        </li>
+      </ul>
+    </section>
 
-  <footer class="bg-gray-200 text-center p-4">
-    <p>&copy; 2025 総社消防　指導救命士</p>
+    <section id="download" class="section-card">
+      <h2 class="section-title"><i class="fas fa-cloud-download-alt"></i>各種資料ダウンロード</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a href="乳幼児向け救急法.pdf" target="_blank" rel="noopener noreferrer" class="download-link-card">
+          <i class="fas fa-baby"></i>
+          <span class="font-semibold">乳幼児向け救急法 PDF</span>
+          <span class="text-xs opacity-80 mt-1">開く／ダウンロード</span>
+        </a>
+        <a href="ドクヘリドクターへの指示要請.pdf" target="_blank" rel="noopener noreferrer" class="download-link-card">
+          <i class="fas fa-helicopter"></i>
+          <span class="font-semibold">ドクヘリドクターへの指示要請 PDF</span>
+          <span class="text-xs opacity-80 mt-1">開く／ダウンロード</span>
+        </a>
+        <a href="救急年報報告（ウツタイン様式オンライン）入力要領.pdf" target="_blank" rel="noopener noreferrer" class="download-link-card">
+          <i class="fas fa-chart-line"></i>
+          <span class="font-semibold">救急年報報告（ウツタイン様式オンライン）入力要領 PDF</span>
+          <span class="text-xs opacity-80 mt-1">開く／ダウンロード</span>
+        </a>
+        <a href="救急年報報告（活動事案毎データ）入力要領.pdf" target="_blank" rel="noopener noreferrer" class="download-link-card">
+          <i class="fas fa-database"></i>
+          <span class="font-semibold">救急年報報告（活動事案毎データ）入力要領 PDF</span>
+          <span class="text-xs opacity-80 mt-1">開く／ダウンロード</span>
+        </a>
+        <a href="除細動プロトコール.pdf" target="_blank" rel="noopener noreferrer" class="download-link-card">
+          <i class="fas fa-bolt"></i>
+          <span class="font-semibold">除細動プロトコール PDF</span>
+          <span class="text-xs opacity-80 mt-1">開く／ダウンロード</span>
+        </a>
+        <a href="特定行為　ヘリ引継ぎ.pdf" target="_blank" rel="noopener noreferrer" class="download-link-card">
+          <i class="fas fa-exchange-alt"></i>
+          <span class="font-semibold">特定行為 実施後のヘリ引継ぎ PDF</span>
+          <span class="text-xs opacity-80 mt-1">開く／ダウンロード</span>
+        </a>
+        <a href="DNARを告げられた場合の救急活動について.pdf" target="_blank" rel="noopener noreferrer" class="download-link-card">
+          <i class="fas fa-hand-paper"></i>
+          <span class="font-semibold">DNARを告げられた場合の救急活動 PDF</span>
+          <span class="text-xs opacity-80 mt-1">開く／ダウンロード</span>
+        </a>
+        <a href="救急車以外の消防車両で災害出動した救急救命士の特定行為実施について.pdf" target="_blank" rel="noopener noreferrer" class="download-link-card">
+          <i class="fas fa-fire-extinguisher"></i>
+          <span class="font-semibold sm:text-sm xl:text-base">救急車以外の消防車両での特定行為実施 PDF</span>
+          <span class="text-xs opacity-80 mt-1">開く／ダウンロード</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 text-gray-300 text-center p-6 mt-12">
+    <div class="container mx-auto">
+      <p class="mb-2">&copy; 2025 総社消防 指導救命士</p>
+      <p class="text-xs">この情報は、総社市救急隊の活動の質の向上を目的としています。</p>
+      <p class="text-xs mt-1">最終更新日: <span id="lastUpdated"></span></p>
+    </div>
   </footer>
-</body>
+
+  <script>
+    // 最終更新日を動的に設定
+    const lastUpdatedElement = document.getElementById('lastUpdated');
+    if (lastUpdatedElement) {
+      const today = new Date();
+      const year = today.getFullYear();
+      const month = today.getMonth() + 1; // 月は0から始まるため+1
+      const day = today.getDate();
+      lastUpdatedElement.textContent = `${year}年${month}月${day}日`;
+    }
+
+    // ナビゲーションのアクティブ状態 (オプション)
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        // ヘッダーとナビゲーションの高さを考慮 (おおよその値)
+        // header height approx 88px, nav height approx 50px. Total offset around 150px
+        if (pageYOffset >= (sectionTop - 150)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('bg-blue-100', 'text-blue-700', 'font-semibold');
+        if (link.getAttribute('href').includes(current)) {
+          link.classList.add('bg-blue-100', 'text-blue-700', 'font-semibold');
+        }
+      });
+    });
+  </script></body>
 </html>
