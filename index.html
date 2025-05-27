@@ -50,14 +50,47 @@
     .link-item i.fa-sun { /* 熱中症アイコンの色 */
         @apply mr-3 text-orange-500 text-xl;
     }
-    .link-item i.fa-external-link-alt { /* 外部リンクアイコンの色 */
+    .link-item i.fa-external-link-alt, .link-item i.fa-chalkboard-teacher { /* 外部リンク・指導者アイコンの色 */
         @apply ml-auto text-gray-400 group-hover:text-blue-500;
+    }
+    .link-item i.fa-canva { /* Canvaアイコン用 */
+        @apply mr-3 text-blue-500 text-xl; /* Canvaのブランドカラーに近い色 */
     }
     .download-link-card {
       @apply flex flex-col items-center justify-center p-6 bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out m-2 min-h-[180px] text-center;
     }
     .download-link-card i {
       @apply text-4xl mb-3;
+    }
+    .updates-section { /* 「更新情報」セクションのスタイル */
+      @apply bg-green-50 border border-green-300 p-6 rounded-xl shadow-lg mb-10;
+    }
+    .updates-title {  /* 「更新情報」タイトルのスタイル */
+      @apply text-xl font-semibold mb-3 text-green-700 flex items-center;
+    }
+    .updates-title i {
+      @apply mr-2 text-green-600;
+    }
+    .updates-item { /* 「更新情報」アイテムのスタイル */
+      @apply text-sm text-gray-700 mb-1;
+    }
+    .updates-item .date {
+      @apply text-xs text-gray-500 ml-2;
+    }
+    .instructor-announcement-section { /* 指導救命士からのお知らせ欄のスタイル */
+      @apply bg-blue-50 border border-blue-300 p-6 rounded-xl shadow-lg mb-10;
+    }
+    .instructor-announcement-title {
+      @apply text-xl font-semibold mb-3 text-blue-700 flex items-center;
+    }
+    .instructor-announcement-title i {
+      @apply mr-2 text-blue-600;
+    }
+    .instructor-announcement-item {
+      @apply text-sm text-gray-700 mb-2 p-3 bg-white rounded-md shadow;
+    }
+     .instructor-announcement-item a {
+      @apply text-blue-600 hover:underline font-medium flex items-center;
     }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -76,6 +109,8 @@
   <nav class="bg-white shadow-md sticky top-[88px] sm:top-[88px] z-40">
     <div class="container mx-auto px-4">
       <ul class="flex flex-wrap justify-center sm:justify-start space-x-2 sm:space-x-4 py-3 overflow-x-auto">
+        <li><a href="#updates" class="nav-link"><i class="fas fa-history mr-1"></i>更新情報</a></li>
+        <li><a href="#instructor-announcements" class="nav-link"><i class="fas fa-chalkboard-teacher mr-1"></i>指導救命士から</a></li>
         <li><a href="#interventions" class="nav-link"><i class="fas fa-procedures mr-1"></i>処置・介入・資料</a></li>
         <li><a href="#documentation" class="nav-link"><i class="fas fa-file-alt mr-1"></i>ドキュメンテーション</a></li>
         <li><a href="#transport" class="nav-link"><i class="fas fa-ambulance mr-1"></i>搬送基準</a></li>
@@ -84,8 +119,45 @@
     </div>
   </nav>
 
-  <main class="container mx-auto p-4 sm:p-8 space-y-10">
-    <section id="interventions" class="section-card">
+  <main class="container mx-auto p-4 sm:p-8">
+
+    <section id="updates" class="updates-section">
+      <h2 class="updates-title">
+        <i class="fas fa-history"></i>
+        更新情報
+      </h2>
+      <ul class="list-none">
+        <li class="updates-item">
+          熱中症対応資料を掲載しました。<span class="date">(2025/05/24)</span>
+        </li>
+        </ul>
+    </section>
+
+    <section id="instructor-announcements" class="instructor-announcement-section mt-10">
+      <h2 class="instructor-announcement-title">
+        <i class="fas fa-chalkboard-teacher"></i>
+        指導救命士からのお知らせ
+      </h2>
+      <ul class="list-none space-y-3">
+        <li class="instructor-announcement-item">
+          <a href="https://www.canva.com/design/DAGI67XFdRU/JoduSPKXXpqmjmjGgotsYA/view?utm_content=DAGI67XFdRU&utm_campaign=designshare&utm_medium=link&utm_source=recording_view" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-canva mr-2"></i>電動ストレッチャーについて
+          </a>
+        </li>
+        <li class="instructor-announcement-item">
+          <a href="https://www.canva.com/design/DAGCeXBUFC4/MjxG5Hx8DwA9vOW_qYtqfg/view?utm_content=DAGCeXBUFC4&utm_campaign=designshare&utm_medium=link&utm_source=recording_view" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-canva mr-2"></i>2024 4月 お知らせ
+          </a>
+        </li>
+        <li class="instructor-announcement-item">
+          <a href="https://www.canva.com/design/DAGNWhuieNE/acCocZd_fUwN9552P9oong/view?utm_content=DAGNWhuieNE&utm_campaign=designshare&utm_medium=link&utm_source=recording_view" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-canva mr-2"></i>AIを活用した指導救命士の働き方改革（岡山県救急医療学術研究会）
+          </a>
+        </li>
+        </ul>
+    </section>
+
+    <section id="interventions" class="section-card mt-10">
       <h2 class="section-title"><i class="fas fa-heartbeat"></i>処置・介入プロトコール・関連資料</h2>
       <ul class="space-y-3">
         <li>
@@ -119,7 +191,7 @@
       </ul>
     </section>
 
-    <section id="documentation" class="section-card">
+    <section id="documentation" class="section-card mt-10">
       <h2 class="section-title"><i class="fas fa-book-medical"></i>ドキュメンテーション関連</h2>
       <ul class="space-y-3">
         <li>
@@ -139,7 +211,7 @@
       </ul>
     </section>
 
-    <section id="transport" class="section-card">
+    <section id="transport" class="section-card mt-10">
       <h2 class="section-title"><i class="fas fa-route"></i>搬送及び受入基準・医療機関リスト</h2>
       <ul class="space-y-3">
         <li>
@@ -173,9 +245,14 @@
       </ul>
     </section>
 
-    <section id="download" class="section-card">
+    <section id="download" class="section-card mt-10">
       <h2 class="section-title"><i class="fas fa-cloud-download-alt"></i>各種資料ダウンロード</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a href="乳幼児向け救急法.pdf" target="_blank" rel="noopener noreferrer" class="download-link-card">
+          <i class="fas fa-baby"></i>
+          <span class="font-semibold">乳幼児向け救急法 PDF</span>
+          <span class="text-xs opacity-80 mt-1">開く／ダウンロード</span>
+        </a>
         <a href="ドクヘリドクターへの指示要請.pdf" target="_blank" rel="noopener noreferrer" class="download-link-card">
           <i class="fas fa-helicopter"></i>
           <span class="font-semibold">ドクヘリドクターへの指示要請 PDF</span>
@@ -196,7 +273,7 @@
           <span class="font-semibold">除細動プロトコール PDF</span>
           <span class="text-xs opacity-80 mt-1">開く／ダウンロード</span>
         </a>
-        <a href="tokutei_heli_hikitsugi.pdf" target="_blank" rel="noopener noreferrer" class="download-link-card"> 
+        <a href="tokutei_heli_hikitsugi.pdf" target="_blank" rel="noopener noreferrer" class="download-link-card">
           <i class="fas fa-exchange-alt"></i>
           <span class="font-semibold">特定行為 実施後のヘリ引継ぎ PDF</span>
           <span class="text-xs opacity-80 mt-1">開く／ダウンロード</span>
@@ -235,23 +312,22 @@
     }
 
     // ナビゲーションのアクティブ状態 (オプション)
-    const sections = document.querySelectorAll('section');
+    const sections = document.querySelectorAll('main > section');
     const navLinks = document.querySelectorAll('nav ul li a');
 
     window.addEventListener('scroll', () => {
-      let current = '';
+      let currentId = '';
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        // ヘッダーとナビゲーションの高さを考慮 (おおよその値)
-        // header height approx 88px, nav height approx 50px. Total offset around 150px
         if (pageYOffset >= (sectionTop - 150)) {
-          current = section.getAttribute('id');
+          currentId = section.getAttribute('id');
         }
       });
 
       navLinks.forEach(link => {
         link.classList.remove('bg-blue-100', 'text-blue-700', 'font-semibold');
-        if (link.getAttribute('href').includes(current)) {
+        const linkHref = link.getAttribute('href');
+        if (linkHref && linkHref.includes(currentId)) {
           link.classList.add('bg-blue-100', 'text-blue-700', 'font-semibold');
         }
       });
